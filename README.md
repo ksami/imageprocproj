@@ -6,6 +6,7 @@
 - [x] flesh out algorithm
 - [ ] transcribe details into softcopy
 - [ ] figure out blender/maya script
+- [ ] create 3d proj mask
 - [ ] find sample data: faces
 - [ ] create skeleton code
 
