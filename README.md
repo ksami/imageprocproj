@@ -8,7 +8,7 @@
 - [ ] figure out blender/maya script
 - [ ] create 3d proj mask
 - [ ] find sample data: faces
-- [ ] create skeleton code
+- [x] create skeleton code
 
 ### 2nd week
 - [ ] fill in code for reading images
