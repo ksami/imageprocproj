@@ -65,6 +65,3 @@
 6. Compose transformations
     - result = [scale] * [translation] * [rotation] * imgFace
     - note: rotation and scaling might result in gaps
-
-##Leaving My Mark On Ksami Github
-###alanxwl was here
