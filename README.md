@@ -6,17 +6,18 @@
 - [x] flesh out algorithm
 - [x] transcribe details into softcopy
 - [ ] figure out blender/maya script
-- [ ] create 3d proj mask
+- [x] create 3d proj mask
 - [ ] find sample data: faces
 - [x] create skeleton code
 
 ### 2nd week
 - [ ] fill in code for reading images
 - [ ] fill in code for processing images
+- [ ] testing
 
 ### 3rd week
-- [ ] code output (or manual?)
-- [ ] testing
+- [ ] polish
+- [ ] extensions
 
 
 ## Algorithm
