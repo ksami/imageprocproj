@@ -6,3 +6,33 @@ function centre = findCentreRectMask(mask)
 
 centre.x = 0;
 centre.y = 0;
+
+[row, col] = size(mask);    
+
+%find top left corner of rectangular region
+check=0;
+for i=1:row
+    for j=1:col
+        if (check==0 && mask(j,i)==1)
+            tl = [j,i];
+            check=1;
+        end
+    end
+end
+
+%find bottom right corner of rectangular region
+check=0;
+for i=row:-1:1
+    for j=col:-1:1
+        if (check==0 && mask(j,i)==1)
+            br = [j,i];
+            check=1;
+        end
+    end
+end
+
+%center of rectangular region
+centre.x=br(2)-tl(2);
+centre.y=br(1)-tl(1);
+
+end
