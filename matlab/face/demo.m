@@ -8,11 +8,11 @@ img = imread('lena.png');
 
 detector = buildDetector();
 [bbox bbimg faces bbfaces] = detectFaceParts(detector,img,2);
-
-figure;imshow(bbimg);
-for i=1:size(bbfaces,1)
- figure;imshow(bbfaces{i});
-end
+imshow(bbimg);
+% figure;imshow(bbimg);
+% for i=1:size(bbfaces,1)
+%  figure;imshow(bbfaces{i});
+% end
 
 % Please uncoment to run demonstration of detectRotFaceParts
 %{
