@@ -46,28 +46,36 @@
     - centre = (topLeft.x+length/2, topLeft.y+breadth/2)
     - Repeat for 3D projection mask
 3. Find rotation matrix
+    - http://www.cs.uic.edu/~jbell/CourseNotes/ComputerGraphics/2DTransforms.html
     - Offset to use nose as origin for rotation
     - Deal with out of bounds
     - Aim for (eyeLCent.y-threshold < eyeRCent.y < eyeLCent.y+threshold)
     - difference = ((eyeLCent.y-eyeRCent.y)/2)
     - rotImg = {eyeLCent.y -= difference, eyeRCent.y += difference}
     - Pixel-wise operation: Value at (x,y) is moved to (newx,newy)
-        + newx = x * cos(theta) - y * sin(theta)
+        + [rotation] = [cos(theta) sin(theta) 0; -sin(theta) cos(theta) 0; 0 0 1]  //rotation about origin(0,0)
+        + [newx; newy; 1] = [rotation] * [x; y; 1]  //2d homogenous coordinates
+        + newx = x * cos(theta) - y * sin(theta)s
         + newy = y * sin(theta) + y * cos(theta)
     - Obtain [rotation]
 4. Find translation matrix
-    - //todo invalid
+    - http://www.cs.uic.edu/~jbell/CourseNotes/ComputerGraphics/2DTransforms.html
     - Aim for nose to match 3D projection mask nose
     - transImg = {projMask.noseCent}
-    - transImg = [translation] * noseMask
+    - Pixel-wise operation: Value at (x,y) is moved to (newx,newy)
+        + [translation] = [1 0 dx; 0 1 dy; 0 0 1]
+        + [newx; newy; 1] = [translation] * [x; y; 1]  //2d homogenous coordinates
     - Obtain [translation]
 5. Find scaling matrix
-    - //todo invalid
+    - http://www.cs.uic.edu/~jbell/CourseNotes/ComputerGraphics/2DTransforms.html
     - Aim for eyes mouth match with 
     - scaleImg = {projMask.eyes, projMask.mouth}
-    - scaleImg = [scale] * eyesMouthMask
+    - Pixel-wise operation: Value at (x,y) is moved to (newx,newy)
+        + [scale] = [sx 0 0; 0 sy 0; 0 0 1]  //scales about origin(0,0)
+        + [newx; newy; 1] = [scale] * [x; y; 1]
     - Obtain [scale]
 6. Compose transformations
-    - //todo invalid
-    - result = [scale] * [translation] * [rotation] * imgFace
-    - note: rotation and scaling might result in gaps
+    - Pixel-wise operation: Value at (x,y) is moved to (newx,newy)
+        + Find order of transforms
+        + Eg. [newx; newy; 1] = [scale] * [translation] * [rotation] * [x; y; 1]
+    - note: rotation and scaling might result in gaps, okay to ignore?

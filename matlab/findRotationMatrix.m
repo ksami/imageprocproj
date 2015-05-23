@@ -5,7 +5,7 @@ function rotation = findRotationMatrix(img, rotatedImg)
 % Inputs : [double] img, [double] rotatedImg
 % Outputs: [double] rotation
 
-if size(rotation,1)=size(rotatedImg,1)
-rotation=rotatedImg*inv(img);
+% if size(rotation,1)=size(rotatedImg,1)
+% rotation=rotatedImg*inv(img);
 
 end
