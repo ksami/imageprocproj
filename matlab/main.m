@@ -2,7 +2,7 @@
 
 % Paths to files
 f_face = '../data/face.jpg';
-f_uv = '../data/uv.jpg';
+f_uv = '../data/uv.png';
 f_result = '../data/result.jpg';
 
 
@@ -30,13 +30,13 @@ img_face = skinMask * img;
 % Find centres of facial features in img_face %
 
 % Find translation matrix %
-translation = findTranslationMatrix(img, translatedImg)
+translation = findTranslationMatrix(img, translatedImg);
 
 % Find rotation matrix %
-rotation = findRotationMatrix(img, rotatedImg)
+rotation = findRotationMatrix(img, rotatedImg);
 
 % Find scaling matrix %
-scaling = findScalingMatrix(img, scaledImg)
+scaling = findScalingMatrix(img, scaledImg);
 
 % Compose transformations %
 img_face = scaling * rotation * translation * img_face;
