@@ -31,7 +31,7 @@ mask_skin = findSkinRegion(img);
 mask_skin = bwareafilt(logical(mask_skin), 1);
 % Fills in any holes
 mask_skin = uint8(imfill(mask_skin, 'holes'));
-imshow(mask_skin*255);  %//debug
+% imshow(mask_skin*255);  %//debug
 
 % Mask other parts of the image
 img_face(:,:,1) = mask_skin .* img(:,:,1);
