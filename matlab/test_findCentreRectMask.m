@@ -16,7 +16,7 @@ centre = [6, 11];
 
 test_centre = findCentreRectMask(mask);
 
-if((test_centre.x-centre(1) == 0) && (test_centre.y-centre(2) == 0))
+if((test_centre.x-centre(2) == 0) && (test_centre.y-centre(1) == 0))
     disp('Passed: findCentreRectMask test passed');
 else
     disp('FAILED: findCentreRectMask test failed');
