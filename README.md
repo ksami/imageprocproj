@@ -77,5 +77,5 @@
 6. Compose transformations
     - Pixel-wise operation: Value at (x,y) is moved to (newx,newy)
         + Find order of transforms
-        + Eg. [newx; newy; 1] = [scale] * [translation] * [rotation] * [x; y; 1]
+        + Eg. [newx; newy; 1] = [scale] * [rotation] * [translation] * [x; y; 1]
     - note: rotation and scaling might result in gaps, okay to ignore?
