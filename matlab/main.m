@@ -4,7 +4,7 @@ clear;
 
 % Paths to files
 f_face = '../data/face.jpg';
-f_uv = '../data/uv.png';
+f_uv = '../data/uv_m_box.jpg';
 f_result = '../data/result.jpg';
 
 
@@ -14,12 +14,12 @@ f_result = '../data/result.jpg';
 img = imread(f_face);  %uint8 * 3
 
 % Load uv texture map (3D projection mask)
-img_uv = imread(f_uv);  %uint8
+img_uv = imread(f_uv);  %uint8 * 3
 
 
 % Obtain bounding box for facial features %
 detector = buildDetector();
-[boundingBoxes, img_bb, ~, ~] = detectFaceParts(detector,img);
+[box_face, img_bb, ~, ~] = detectFaceParts(detector,img);
 % imshow(img_bb);  %//debug
 
 
@@ -37,12 +37,34 @@ mask_skin = uint8(imfill(mask_skin, 'holes'));
 img_face(:,:,1) = mask_skin .* img(:,:,1);
 img_face(:,:,2) = mask_skin .* img(:,:,2);
 img_face(:,:,3) = mask_skin .* img(:,:,3);
-imshow(img_face);  %//debug
+% imshow(img_face);  %//debug
 
 
-% % Find centres of facial features in img_uv %
-% % Find centres of facial features in img_face %
-% 
+
+% Find centres of facial features in img_uv %
+% Create masks for each feature
+temp_mask_eyes_uv = uint8(im2bw(img_uv(:,:,1), 0.25));  %red
+mask_uv.eyeL = uint8(im2bw(img_uv(:,:,1), 0.75));
+mask_uv.eyeR = temp_mask_eyes_uv - mask_uv.eyeL;
+% imshow(mask_uv.eyeR*255);  %//debug
+mask_uv.nose = uint8(im2bw(img_uv(:,:,2), 0.75));  %green
+mask_uv.mouth = uint8(im2bw(img_uv(:,:,3), 0.75));  %blue
+
+% Find centres for each of the boxes
+centre_uv.eyeL = findCentreRectMask(mask_uv.eyeL);
+centre_uv.eyeR = findCentreRectMask(mask_uv.eyeR);
+centre_uv.nose = findCentreRectMask(mask_uv.nose);
+centre_uv.mouth = findCentreRectMask(mask_uv.mouth);
+
+
+% Find centres of facial features in img_face %
+centre_face.eyeL = findCentrePoints(box_face(:,5:8));
+centre_face.eyeR = findCentrePoints(box_face(:,9:12));
+centre_face.nose = findCentrePoints(box_face(:,13:16));
+centre_face.mouth = findCentrePoints(box_face(:,17:20));
+
+
+
 % % Find translation matrix %
 % translation = findTranslationMatrix(img, translatedImg);
 % 
