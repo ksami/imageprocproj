@@ -3,18 +3,18 @@
 clear;
 
 % Paths to files
-f_face = '../data/face.jpg';
-f_uv = '../data/uv_m_box.jpg';
-f_result = '../data/result.jpg';
+f_face = '../data/face.jpg';  %RGB, variable
+f_uv = '../data/uv_m_box.jpg';  %RGB, 256x256
+f_result = '../data/result.jpg';  %RGB, 256x256
 
 
 % Load images from file %
+% Load uv texture map (3D projection mask)
+img_uv = imread(f_uv);  %uint8 * 3
 
 % Load face image
 img = imread(f_face);  %uint8 * 3
-
-% Load uv texture map (3D projection mask)
-img_uv = imread(f_uv);  %uint8 * 3
+img = imresize(img, [size(img_uv,1) size(img_uv,2)]);
 
 
 % Obtain bounding box for facial features %
