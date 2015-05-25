@@ -13,8 +13,8 @@ centre.y = 0;
 check=0;
 for i=1:row
     for j=1:col
-        if (check==0 && mask(j,i)==1)
-            tl = [j,i];
+        if (check==0 && mask(i,j)==1)
+            tl = [i,j];
             check=1;
         end
     end
@@ -24,15 +24,13 @@ end
 check=0;
 for i=row:-1:1
     for j=col:-1:1
-        if (check==0 && mask(j,i)==1)
-            br = [j,i];
+        if (check==0 && mask(i,j)==1)
+            br = [i,j];
             check=1;
         end
     end
 end
 
 %center of rectangular region
-centre.x=br(2)-tl(2);
-centre.y=br(1)-tl(1);
-
-end
+centre.x=floor((br(2)+tl(2))/2);
+centre.y=floor((br(1)+tl(1))/2);
