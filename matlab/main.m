@@ -64,15 +64,14 @@ centre_face.nose = findCentrePoints(box_face(:,13:16));
 centre_face.mouth = findCentrePoints(box_face(:,17:20));
 
 
-
 % % Find translation matrix %
-% translation = findTranslationMatrix(img, translatedImg);
+% translation = findTranslationMatrix(centre_face, centre_uv);
 % 
 % % Find rotation matrix %
-% rotation = findRotationMatrix(img, rotatedImg);
+% rotation = findRotationMatrix(centre_face, centre_uv);
 % 
 % % Find scaling matrix %
-% scaling = findScalingMatrix(img, scaledImg);
+% scaling = findScalingMatrix(centre_face, centre_uv);
 % 
 % % Compose transformations %
 % img_face = scaling * rotation * translation * img_face;

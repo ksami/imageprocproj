@@ -1,11 +1,9 @@
-function rotation = findRotationMatrix(img, rotatedImg)
-% Given an img and its rotated result such that
-% [rotatedImg] = [rotation] * [img]
-% find [rotation]
-% Inputs : [double] img, [double] rotatedImg
-% Outputs: [double] rotation
-
-% if size(rotation,1)=size(rotatedImg,1)
-% rotation=rotatedImg*inv(img);
+function rotation = findRotationMatrix(centre_face, centre_rotated)
+% Given centres of facial features, find rotation matrix to
+% transform centre_face into centre_rotated
+% centre_face and centre_rotated are both structures containing
+% eyeL, eyeR, nose, mouth
+% each of the features are points with x y coords
+% eg. centre_face.eyeL.x
 
 end
