@@ -12,7 +12,13 @@ transformedImg = zeros(size(img), 'uint8');
 for i=1:dim
     for y=1:row
         for x=1:col
-            xyTRS = translation * [x; y; 1];
+            xyT = translation * [x; y; 1];
+            % WC: end loop first?
+            % dx=xyT.nose.x-1;
+            %dy=xyT.nose.y-1;
+            %xyT=xyT-dx
+            %offset->nextloop to rot and scale->end loop->offsetback?
+          
             
             %//todo need to move origin to apply rot and scale
 %             xyTR = rotation * xyT;
