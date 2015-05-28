@@ -7,8 +7,8 @@ function rotation = findRotationMatrix(centre_face, centre_rotated)
 % eg. centre_face.eyeL.x
 
 %offset eyeL (original) and eyeL1 (rotated); nose as origin; express as x y coords
-eyeL = [centre_face.eyeL.x - centre_face.nose.x + 1, centre_face.eyeL.y - centre_face.nose.y + 1];
-eyeL1 = [centre_rotated.eyeL.x - centre_face.nose.x + 1, centre_rotated.eyeL.y - centre_face.nose.y + 1];
+eyeL = [centre_face.eyeL.x - centre_face.nose.x, centre_face.eyeL.y - centre_face.nose.y];
+eyeL1 = [centre_rotated.eyeL.x - centre_face.nose.x, centre_rotated.eyeL.y - centre_face.nose.y];
 
 %find angle between eyeL (original) and eyeL1 (rotated)
 costheta = (dot(eyeL, eyeL1))/((norm(eyeL))*(norm(eyeL1)));
@@ -17,8 +17,8 @@ theta = acos(costheta);
 %check whether angle (theta) is negative
 xaxis = [1,0];
 rho = acos((dot(eyeL, xaxis))/((norm(eyeL))*(norm(xaxis))));
-rho1 = acos((dot(eyeL1, xaxis))/((norm(eyeL1))*(norm(axis))));
-if (rho1>rho)
+rho1 = acos((dot(eyeL1, xaxis))/((norm(eyeL1))*(norm(xaxis))));
+if (rho1<rho)
     theta = -theta;
 end
 
