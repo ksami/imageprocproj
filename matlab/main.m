@@ -69,21 +69,29 @@ translation = findTranslationMatrix(centre_face, centre_uv);
 % Apply translation
 centre_faceT = transformCentres(centre_face, translation);
 
-
-% Find rotation matrix %
-rotation = findRotationMatrix(centre_faceT, centre_uv);
-
 % translate for offset
 dx = - centre_uv.nose.x + 1;
 dy = - centre_uv.nose.y + 1;
 offset = [1 0 dx; 0 1 dy; 0 0 1];
-centre_faceTo = transformCentres(centre_faceT, offset);
+centre_uvo = transformCentres(centre_uv, offset);
+
+
+% Find rotation matrix %
+rotation = findRotationMatrix(centre_faceT, centre_uv);
+
 % Apply rotation 
+centre_faceTo = transformCentres(centre_faceT, offset);
 centre_faceTR = transformCentres(centre_faceTo, rotation);
 
+% offset backwards
+dx = -dx;
+dy = -dy;
+offset = [1 0 dx; 0 1 dy; 0 0 1];
+centre_faceTRO = transformCentres(centre_faceTR, offset);
+centre_uvo = transformCentres(centre_uv, offset);
 
 % Find scaling matrix %
-scaling = findScalingMatrix(centre_faceTR, centre_uv);
+scaling = findScalingMatrix(centre_faceTR, centre_uvo);
 
 % Compose transformations %
 img_face = transformImg(img_face, translation, rotation, scaling, centre_uv);
