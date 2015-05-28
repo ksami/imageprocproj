@@ -78,7 +78,7 @@ centre_face.mouth = findCentrePoints(box_face(:,17:20));
 % scaling = findScalingMatrix(centre_face, centre_face_TR);
 % 
 % % Compose transformations %
-% img_face = transformImg(img_face, translation, rotation, scaling);
+% img_face = transformImg(img_face, translation, rotation, scaling,centre_uv);
 % 
 % 
 % % Save output image to file %
