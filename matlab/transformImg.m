@@ -1,4 +1,4 @@
-function transformedImg = transformImg(img, translation, rotation, scaling)
+function transformedImg = transformImg(img, translation, rotation, scaling, centre_uv)
 % Given img and the 3 transformation matrices,
 % apply transformations in the order
 % (translation -> rotation -> scaling) to obtain transformedImg
@@ -13,11 +13,13 @@ for i=1:dim
     for y=1:row
         for x=1:col
             xyT = translation * [x; y; 1];
-            % WC: end loop first?
-            % dx=xyT.nose.x-1;
-            %dy=xyT.nose.y-1;
-            %xyT=xyT-dx
-            %offset->nextloop to rot and scale->end loop->offsetback?
+            dx=centre_uv.nose.x-1;
+            dy=centre_uv.nose.y-1;
+            xyT1=xyT-[dx; dy];
+            
+            xyTR = rotation * xyT1;
+            xyTRS0 = scaling * xyTR;
+            xyTRS = xyTRS0+[dx,dy];
           
             
             %//todo need to move origin to apply rot and scale
