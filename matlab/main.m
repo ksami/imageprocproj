@@ -5,7 +5,7 @@ clear;
 % Paths to files
 f_face = '../data/face.jpg';  %RGB, variable
 f_uv = '../data/uv_m_box.jpg';  %RGB, 256x256
-f_result = '../data/result.jpg';  %RGB, 256x256
+f_result = '../result.jpg';  %RGB, 256x256
 
 
 % Load images from file %
@@ -79,7 +79,7 @@ dy = - centre_uv.nose.y + 1;
 offset = [1 0 dx; 0 1 dy; 0 0 1];
 centre_faceTo = transformCentres(centre_faceT, offset);
 % Apply rotation 
-centre_face_TR = transformCentres(centre_faceTo, rotation);
+centre_faceTR = transformCentres(centre_faceTo, rotation);
 
 
 % Find scaling matrix %
