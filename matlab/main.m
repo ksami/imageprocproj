@@ -87,7 +87,7 @@ scaling = findScalingMatrix(centre_faceTR, centre_uv);
 
 % Compose transformations %
 img_face = transformImg(img_face, translation, rotation, scaling, centre_uv);
-
+imshow(img_face)  %//debug
 
 % Save output image to file %
 imwrite(img_face, f_result);

@@ -13,7 +13,7 @@ dx2=centre_face.nose.x-1;
 dy1=centre_scaled.nose.y-1;
 dy2=centre_face.nose.y-1;
 
-Sx1=(centre_scaled.eyeL.x-dx1)/(centre_face.eyeL.x-dx2;
+Sx1=(centre_scaled.eyeL.x-dx1)/(centre_face.eyeL.x-dx2);
 Sx2=(centre_scaled.eyeR.x-dx1)/(centre_face.eyeL.x-dx2);
 Sx3=(centre_scaled.mouth.x-dx1)/(centre_face.eyeL.x-dx2);
 Sx=mean([Sx1,Sx2,Sx3]);
