@@ -64,22 +64,30 @@ centre_face.nose = findCentrePoints(box_face(:,13:16));
 centre_face.mouth = findCentrePoints(box_face(:,17:20));
 
 
-% % Find translation matrix %
-% translation = findTranslationMatrix(centre_face, centre_uv);
-% % Apply translation
-% centre_faceT = transformCentres(centre_face, translation);
+% Find translation matrix %
+translation = findTranslationMatrix(centre_face, centre_uv);
+% Apply translation
+centre_faceT = transformCentres(centre_face, translation);
 
-% % Find rotation matrix %
-% rotation = findRotationMatrix(centre_face, centre_faceT);
-% % Apply rotation 
-% centre_face_TR = transformCentres(centre_faceT, rotation);
 
-% % Find scaling matrix %
-% scaling = findScalingMatrix(centre_face, centre_face_TR);
-% 
-% % Compose transformations %
-% img_face = transformImg(img_face, translation, rotation, scaling, centre_uv);
-% 
-% 
-% % Save output image to file %
-% imwrite(img_face, f_result);
+% Find rotation matrix %
+rotation = findRotationMatrix(centre_faceT, centre_uv);
+
+% translate for offset
+dx = - centre_uv.nose.x + 1;
+dy = - centre_uv.nose.y + 1;
+offset = [1 0 dx; 0 1 dy; 0 0 1];
+centre_faceTo = transformCentres(centre_faceT, offset);
+% Apply rotation 
+centre_face_TR = transformCentres(centre_faceTo, rotation);
+
+
+% Find scaling matrix %
+scaling = findScalingMatrix(centre_faceTR, centre_uv);
+
+% Compose transformations %
+img_face = transformImg(img_face, translation, rotation, scaling, centre_uv);
+
+
+% Save output image to file %
+imwrite(img_face, f_result);
