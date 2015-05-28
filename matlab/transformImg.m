@@ -18,8 +18,8 @@ for i=1:dim
             xyT1=xyT-[dx; dy; 1];
             
             xyTR = rotation * xyT1;
-%             xyTRS0 = scaling * xyTR;
-            xyTRS = xyTR+[dx; dy; 1];
+            xyTRS0 = scaling * xyTR;
+            xyTRS = xyTRS0+[dx; dy; 1];
           
             
             %//todo need to move origin to apply rot and scale
