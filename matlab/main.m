@@ -90,8 +90,15 @@ offset = [1 0 dx; 0 1 dy; 0 0 1];
 centre_faceTRO = transformCentres(centre_faceTR, offset);
 centre_uvo = transformCentres(centre_uv, offset);
 
+% centre for scaling
+dx = - ((centre_uv.eyeL.x + centre_uv.eyeR.x) / 2) + 1;
+dy = - ((centre_uv.eyeL.y + centre_uv.mouth.y) / 2) + 1;
+offset = [1 0 dx; 0 1 dy; 0 0 1];
+centre_faceTRO = transformCentres(centre_faceTRO, offset);
+centre_uvo = transformCentres(centre_uvo, offset);
+
 % Find scaling matrix %
-scaling = findScalingMatrix(centre_faceTR, centre_uvo);
+scaling = findScalingMatrix(centre_faceTRO, centre_uvo);
 
 % Compose transformations %
 img_face = transformImg(img_face, translation, rotation, scaling, centre_uv);

@@ -13,18 +13,21 @@ for i=1:dim
     for y=1:row
         for x=1:col
             xyT = translation * [x; y; 1];
-            dx=centre_uv.nose.x-1;
-            dy=centre_uv.nose.y-1;
-            xyT1=xyT-[dx; dy; 1];
             
-            xyTR = rotation * xyT1;
-            xyTRS0 = scaling * xyTR;
-            xyTRS = xyTRS0+[dx; dy; 1];
-          
+            % move nose to origin, rotate, move nose back
+            dx = centre_uv.nose.x-1;
+            dy = centre_uv.nose.y-1;
+            xyT = xyT-[dx; dy; 1];
+            xyTR = rotation * xyT;
+            xyTR = xyTR+[dx; dy; 1];
             
-            %//todo need to move origin to apply rot and scale
-%             xyTR = rotation * xyT;
-%             xyTRS = scaling * xyTR;
+            % move centre of scaling to origin, scale, move back
+            dx = - ((centre_uv.eyeL.x + centre_uv.eyeR.x) / 2) + 1;
+            dy = - ((centre_uv.eyeL.y + centre_uv.mouth.y) / 2) + 1;
+            xyTR = xyTR+[dx; dy; 1];
+            xyTRS = scaling * xyTR;
+            xyTRS = xyTRS-[dx; dy; 1];
+
             
             % Handle out-of-bounds and decimal
             newx = floor(xyTRS(1));
