@@ -46,7 +46,7 @@ img_face(:,:,3) = mask_skin .* img(:,:,3);
 temp_mask_eyes_uv = uint8(im2bw(img_uv(:,:,1), 0.25));  %red
 mask_uv.eyeL = uint8(im2bw(img_uv(:,:,1), 0.75));
 mask_uv.eyeR = temp_mask_eyes_uv - mask_uv.eyeL;
-imshow(mask_uv.eyeR*255);  %//debug
+% imshow(mask_uv.eyeR*255);  %//debug
 mask_uv.nose = uint8(im2bw(img_uv(:,:,2), 0.75));  %green
 mask_uv.mouth = uint8(im2bw(img_uv(:,:,3), 0.75));  %blue
 
@@ -111,11 +111,11 @@ scaling = findScalingMatrix(centre_faceTR, centre_uvo);
 
 % Compose transformations %
 img_face = transformImg(img_face, translation, rotation, scaling, centre_uv);
-%imshow(img_face);  %//debug
+% imshow(img_face);  %//debug
 
 % Fill in gaps from scaling %
-% img_face1 = fillImg(img_face);
-% imshow(img_face1);  %//debug
+img_face1 = fillImg(img_face);
+imshow(img_face1);  %//debug
 
 % Save output image to file %
 imwrite(img_face1, f_result);
