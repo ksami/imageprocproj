@@ -17,18 +17,18 @@ dx2 = 0;
 dy1=0;
 dy2=0;
 
-Sx=(centre_scaled.eyeL.x-dx1)/(centre_face.eyeL.x-dx2);
-% Sx2=(centre_scaled.eyeR.x-dx1)/(centre_face.eyeR.x-dx2);
+Sx1=(centre_scaled.eyeL.x-dx1)/(centre_face.eyeL.x-dx2);
+Sx2=(centre_scaled.eyeR.x-dx1)/(centre_face.eyeR.x-dx2);
 % Sx3=(centre_scaled.mouth.x-dx1)/(centre_face.mouth.x-dx2);
-% Sx=mean([Sx1,Sx2]);
+Sx=mean([Sx1,Sx2]);
 % Sx = 1;
 % errorx=[(Sx1-Sx)/Sx,(Sx2-Sx)/Sx]; %error given as a ratio, *100 to become percentage
 % disp(errorx);
 
-% Sy1=(centre_scaled.eyeL.y-dy1)/(centre_face.eyeL.y-dy2);
+Sy1=(centre_scaled.eyeL.y-dy1)/(centre_face.eyeL.y-dy2);
 % Sy2=(centre_scaled.eyeR.y-dy1)/(centre_face.eyeR.y-dy2);
-Sy=(centre_scaled.mouth.y-dy1)/(centre_face.mouth.y-dy2);
-% Sy=mean([Sy1,Sy2]);
+Sy2=(centre_scaled.mouth.y-dy1)/(centre_face.mouth.y-dy2);
+Sy=mean([Sy1,Sy2]);
 % Sy = 2;
 % errory=[(Sy1-Sy)/Sy,(Sy2-Sy)/Sy]; %output is suppressed,consider putting as additional output of function
 % disp(errory);

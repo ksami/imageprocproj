@@ -5,6 +5,7 @@ function main(gender)
 % Paths to files
 f_face = '../data/face.jpg';  %RGB, variable
 f_uv = sprintf('../data/uv_%s_box.jpg', gender);  %RGB, 256x256
+disp(f_uv);
 f_result = '../data/result.jpg';  %RGB, 256x256
 
 
@@ -46,7 +47,7 @@ img_face(:,:,3) = mask_skin .* img(:,:,3);
 temp_mask_eyes_uv = uint8(im2bw(img_uv(:,:,1), 0.25));  %red
 mask_uv.eyeL = uint8(im2bw(img_uv(:,:,1), 0.75));
 mask_uv.eyeR = temp_mask_eyes_uv - mask_uv.eyeL;
-% imshow(mask_uv.eyeR*255);  %//debug
+imshow(mask_uv.eyeR*255);  %//debug
 mask_uv.nose = uint8(im2bw(img_uv(:,:,2), 0.75));  %green
 mask_uv.mouth = uint8(im2bw(img_uv(:,:,3), 0.75));  %blue
 
