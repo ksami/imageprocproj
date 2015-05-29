@@ -60,9 +60,16 @@ centre_uv.mouth = findCentreRectMask(mask_uv.mouth);
 % Find centres of facial features in img_face %
 centre_face.eyeL = findCentrePoints(box_face(:,5:8));
 centre_face.eyeR = findCentrePoints(box_face(:,9:12));
-centre_face.nose = findCentrePoints(box_face(:,13:16));
-centre_face.mouth = findCentrePoints(box_face(:,17:20));
+centre_face.mouth = findCentrePoints(box_face(:,13:16));
+centre_face.nose = findCentrePoints(box_face(:,17:20));
 
+% debugimg = zeros(size(img,1), size(img,2));
+% fields = fieldnames(centre_face);
+% for fd=fields'
+%     temp = [centre_face.(fd{1}).x; centre_face.(fd{1}).y; 1];
+%     debugimg(temp(2), temp(1)) = 1;
+% end
+% imshow(debugimg);
 
 % Find translation matrix %
 translation = findTranslationMatrix(centre_face, centre_uv);
@@ -84,23 +91,23 @@ centre_faceTo = transformCentres(centre_faceT, offset);
 centre_faceTR = transformCentres(centre_faceTo, rotation);
 
 % offset backwards
-dx = -dx;
-dy = -dy;
-offset = [1 0 dx; 0 1 dy; 0 0 1];
-centre_faceTRO = transformCentres(centre_faceTR, offset);
-centre_uvo = transformCentres(centre_uvo, offset);
-
-% centre for scaling
-dx = - ((centre_uv.eyeL.x + centre_uv.eyeR.x) / 2) + 1;
-dy = - ((centre_uv.eyeL.y + centre_uv.mouth.y) / 2) + 1;
-% dx = -30;
-% dy = -30;
-offset = [1 0 dx; 0 1 dy; 0 0 1];
-centre_faceTRO = transformCentres(centre_faceTRO, offset);
-centre_uvo = transformCentres(centre_uvo, offset);
+% dx = -dx;
+% dy = -dy;
+% offset = [1 0 dx; 0 1 dy; 0 0 1];
+% centre_faceTRO = transformCentres(centre_faceTR, offset);
+% centre_uvo = transformCentres(centre_uvo, offset);
+% 
+% % centre for scaling
+% dx = - ((centre_uv.eyeL.x + centre_uv.eyeR.x) / 2) + 1;
+% dy = - ((centre_uv.eyeL.y + centre_uv.mouth.y) / 2) + 1;
+% % dx = -30;
+% % dy = -30;
+% offset = [1 0 dx; 0 1 dy; 0 0 1];
+% centre_faceTRO = transformCentres(centre_faceTRO, offset);
+% centre_uvo = transformCentres(centre_uvo, offset);
 
 % Find scaling matrix %
-scaling = findScalingMatrix(centre_faceTRO, centre_uvo);
+scaling = findScalingMatrix(centre_faceTR, centre_uvo);
 
 % Compose transformations %
 img_face = transformImg(img_face, translation, rotation, scaling, centre_uv);
