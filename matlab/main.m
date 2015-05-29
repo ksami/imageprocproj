@@ -111,7 +111,11 @@ scaling = findScalingMatrix(centre_faceTR, centre_uvo);
 
 % Compose transformations %
 img_face = transformImg(img_face, translation, rotation, scaling, centre_uv);
-imshow(img_face)  %//debug
+imshow(img_face);  %//debug
+
+% Fill in gaps from scaling %
+img_face = fillImg(img_face);
+imshow(img_face);  %//debug
 
 % Save output image to file %
 imwrite(img_face, f_result);
