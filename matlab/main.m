@@ -1,10 +1,10 @@
 % Main %
-function main(gender)
-% gender either f or m
+
+clear;
 
 % Paths to files
 f_face = '../data/face.jpg';  %RGB, variable
-f_uv = sprintf('../data/uv_%s_box.jpg', gender);  %RGB, 256x256
+f_uv = '../data/uv_m_box.jpg';  %RGB, 256x256
 f_result = '../data/result.jpg';  %RGB, 256x256
 
 
@@ -111,14 +111,11 @@ scaling = findScalingMatrix(centre_faceTR, centre_uvo);
 
 % Compose transformations %
 img_face = transformImg(img_face, translation, rotation, scaling, centre_uv);
-% imshow(img_face);  %//debug
+%imshow(img_face);  %//debug
 
 % Fill in gaps from scaling %
-% img_face = fillImg(img_face);
-% imshow(img_face);  %//debug
+img_face1 = fillImg(img_face);
+imshow(img_face1);  %//debug
 
 % Save output image to file %
-imwrite(img_face, f_result);
-
-exit;
-end
+imwrite(img_face1, f_result);
