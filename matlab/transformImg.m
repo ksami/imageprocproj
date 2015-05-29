@@ -19,11 +19,14 @@ for i=1:dim
             dy = centre_uv.nose.y-1;
             xyT = xyT-[dx; dy; 1];
             xyTR = rotation * xyT;
+%             xyTRS = scaling * xyTR;
             xyTR = xyTR+[dx; dy; 1];
             
             % move centre of scaling to origin, scale, move back
             dx = - ((centre_uv.eyeL.x + centre_uv.eyeR.x) / 2) + 1;
             dy = - ((centre_uv.eyeL.y + centre_uv.mouth.y) / 2) + 1;
+%             dx = -30;
+%             dy = -30;
             xyTR = xyTR+[dx; dy; 1];
             xyTRS = scaling * xyTR;
             xyTRS = xyTRS-[dx; dy; 1];

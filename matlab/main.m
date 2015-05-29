@@ -5,7 +5,7 @@ clear;
 % Paths to files
 f_face = '../data/face.jpg';  %RGB, variable
 f_uv = '../data/uv_m_box.jpg';  %RGB, 256x256
-f_result = '../result.jpg';  %RGB, 256x256
+f_result = '../data/result.jpg';  %RGB, 256x256
 
 
 % Load images from file %
@@ -88,11 +88,13 @@ dx = -dx;
 dy = -dy;
 offset = [1 0 dx; 0 1 dy; 0 0 1];
 centre_faceTRO = transformCentres(centre_faceTR, offset);
-centre_uvo = transformCentres(centre_uv, offset);
+centre_uvo = transformCentres(centre_uvo, offset);
 
 % centre for scaling
 dx = - ((centre_uv.eyeL.x + centre_uv.eyeR.x) / 2) + 1;
 dy = - ((centre_uv.eyeL.y + centre_uv.mouth.y) / 2) + 1;
+% dx = -30;
+% dy = -30;
 offset = [1 0 dx; 0 1 dy; 0 0 1];
 centre_faceTRO = transformCentres(centre_faceTRO, offset);
 centre_uvo = transformCentres(centre_uvo, offset);
