@@ -115,7 +115,7 @@ img_face = transformImg(img_face, translation, rotation, scaling, centre_uv);
 
 % Fill in gaps from scaling %
 img_face1 = fillImg(img_face);
-imshow(img_face1);  %//debug
+% imshow(img_face1);  %//debug
 
 % Save output image to file %
 imwrite(img_face1, f_result);
