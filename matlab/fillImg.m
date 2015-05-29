@@ -1,6 +1,7 @@
 function filledImg = fillImg(img)
 % Fills in the gaps resulting from an image being scaled
 
+img=double(img);
 [row, col, dim] = size(img);
 filledImg=zeros(size(img));
 pizza=zeros(size(img));
@@ -15,17 +16,6 @@ for d=1:dim
             count = 0;
             
             if (chicken(y,x)==0)
-                
-%                 sum=chicken(y-1,x-1)+chicken(y,x-1)+chicken(y+1,x-1)+chicken(y-1,x)+chicken(y+1,x)+chicken(y-1,x+1)+chicken(y,x+1)+chicken(y+1,x+1);
-%                
-%                 for y1=y-1:1:y+1
-%                     for x1=x-1:1:x+1
-%                         if (chicken(y1,x1)~=0)
-%                             count=count+1;
-%                         end
-%                     end
-%                 end
-                
                 
                 for dy=-1:1:1
                     for dx=-1:1:1
