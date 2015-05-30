@@ -57,6 +57,7 @@ namespace headui
         {
             if (radioMale.Checked == true)
             {
+                textBox7.Text = "face_m.jpg";
                 textBox1.Text = "main('m')";
                 textBox3.Text = "data/head_m_1.fbx";
                 textBox4.Text = "data/head_m_2.fbx";
@@ -68,6 +69,7 @@ namespace headui
         {
             if (radioFemale.Checked == true)
             {
+                textBox7.Text = "face_f.jpg";
                 textBox1.Text = "main('f')";
                 textBox3.Text = "data/head_f_1.fbx";
                 textBox4.Text = "data/head_f_2.fbx";

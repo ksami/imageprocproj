@@ -41,11 +41,15 @@
             this.radioMale = new System.Windows.Forms.RadioButton();
             this.radioFemale = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 94);
+            this.button1.Location = new System.Drawing.Point(11, 184);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 30);
             this.button1.TabIndex = 0;
@@ -55,7 +59,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(14, 160);
+            this.button2.Location = new System.Drawing.Point(12, 253);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(139, 29);
             this.button2.TabIndex = 1;
@@ -65,7 +69,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(15, 214);
+            this.button3.Location = new System.Drawing.Point(13, 307);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(139, 29);
             this.button3.TabIndex = 2;
@@ -75,7 +79,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(13, 265);
+            this.button4.Location = new System.Drawing.Point(11, 358);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(139, 29);
             this.button4.TabIndex = 3;
@@ -85,7 +89,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(169, 98);
+            this.textBox1.Location = new System.Drawing.Point(168, 188);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(250, 22);
             this.textBox1.TabIndex = 4;
@@ -101,7 +105,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(169, 163);
+            this.textBox3.Location = new System.Drawing.Point(167, 256);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(250, 22);
             this.textBox3.TabIndex = 6;
@@ -109,7 +113,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(169, 217);
+            this.textBox4.Location = new System.Drawing.Point(167, 310);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(250, 22);
             this.textBox4.TabIndex = 7;
@@ -117,7 +121,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(169, 268);
+            this.textBox5.Location = new System.Drawing.Point(167, 361);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(250, 22);
             this.textBox5.TabIndex = 8;
@@ -156,11 +160,51 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "FBXReview Path:";
             // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(167, 147);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.Size = new System.Drawing.Size(250, 22);
+            this.textBox6.TabIndex = 12;
+            this.textBox6.Text = "result.jpg";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(167, 110);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(250, 22);
+            this.textBox7.TabIndex = 13;
+            this.textBox7.Text = "face_m.jpg";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(22, 150);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 17);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Output File:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(22, 113);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 17);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Input File:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(432, 309);
+            this.ClientSize = new System.Drawing.Size(432, 401);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.radioFemale);
             this.Controls.Add(this.radioMale);
@@ -195,6 +239,10 @@
         private System.Windows.Forms.RadioButton radioMale;
         private System.Windows.Forms.RadioButton radioFemale;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
 
     }
 }

@@ -1,9 +1,0 @@
-#!/bin/bash
-
-echo $# arguments to $0: $*
-
-fbxviewer="C:/Program Files/Autodesk/FBX Review/fbxreview.exe"
-matlab="matlab -r"
-
-# Execute fbx viewer with 1st arg
-"$fbxviewer" $1

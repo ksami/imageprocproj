@@ -3,7 +3,7 @@ function main(gender)
 % gender either f or m
 
 % Paths to files
-f_face = '../data/face.jpg';  %RGB, variable
+f_face = sprintf('../data/face_%s.jpg', gender);  %RGB, variable
 f_uv = sprintf('../data/uv_%s_box.jpg', gender);  %RGB, 256x256
 f_result = '../data/result.jpg';  %RGB, 256x256
 
