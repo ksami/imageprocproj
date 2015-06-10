@@ -4,6 +4,7 @@ Projects an input face image onto a 3D head model with different hairstyles
 
 ### Run
 Requires matlab to run the code and FBX Review for displaying the models
+
 1. Make sure the `.dll` files are in the same directory as `yangnyeom.exe`
 2. Run `yangnyeom.exe`
 3. Click Process Image and wait for the matlab windows to close automatically
