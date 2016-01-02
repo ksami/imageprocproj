@@ -1,6 +1,7 @@
 # imageprocproj
 
 Projects an input face image onto a 3D head model with different hairstyles
+![demo](https://cloud.githubusercontent.com/assets/2187904/12073677/99626842-b166-11e5-8377-185192722255.png)
 
 ### Run
 Requires matlab to run the code and FBX Review for displaying the models
